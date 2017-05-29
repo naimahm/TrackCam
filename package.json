@@ -11,7 +11,12 @@
     "url": "git://github.com/naimahm/TrackCam.git"
   },
   "author": "Naimah Mumin",
-  "license": "BSD",
+  "license": "UNLICENSED",
   "readmeFilename": "README.md",
-  "gitHead": "f87caf4e5586f93d1b57c4a56ca304cb0fc14278"
+  "gitHead": "f87caf4e5586f93d1b57c4a56ca304cb0fc14278",
+  "dependencies": {
+    "express": "",
+    "pi-servo": "",
+    "pi-blaster.js": ""
+  }
 }
