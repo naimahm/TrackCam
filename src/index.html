@@ -59,7 +59,7 @@
         		console.log("moving camera down");
         		if(window.currentTilt < 180){
         			var xhttp = new XMLHttpRequest();
-        			var newDegree = window.currentTilt 1 10;
+        			var newDegree = window.currentTilt - 10;
         			console.log("moving camera to "+newDegree);
         			xhttp.open("GET", tiltURL+newDegree, true);
 					xhttp.send();
