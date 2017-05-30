@@ -15,9 +15,11 @@
   "readmeFilename": "README.md",
   "gitHead": "f87caf4e5586f93d1b57c4a56ca304cb0fc14278",
   "dependencies": {
+    "es6-promise": "3.1.2",
     "express": "",
-    "pi-servo": "",
+    "express-ws": "",
     "pi-blaster.js": "",
-    "es6-promise": "3.1.2"
+    "pi-servo": "",
+    "raspivid-stream": ""
   }
 }
