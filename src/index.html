@@ -26,7 +26,7 @@
         		console.log("moving camera right");
         		if(window.currentTilt < 180){
         			var xhttp = new XMLHttpRequest();
-        			var newDegree = window.currentPan + 10;
+        			var newDegree = window.currentPan - 10;
         			console.log("moving camera to "+newDegree);
         			xhttp.open("GET", panURL+newDegree, true);
 					xhttp.send();
@@ -37,7 +37,7 @@
         		console.log("moving camera left");
         		if(window.currentPan > 0){
         			var xhttp = new XMLHttpRequest();
-        			var newDegree = window.currentPan - 10;
+        			var newDegree = window.currentPan + 10;
         			console.log("moving camera to "+newDegree);
         			xhttp.open("GET", panURL+newDegree, true);
 					xhttp.send();
@@ -48,7 +48,7 @@
         		console.log("moving camera up");
         		if(window.currentTilt > 0){
         			var xhttp = new XMLHttpRequest();
-        			var newDegree = window.currentTilt + 10;
+        			var newDegree = window.currentTilt - 10;
         			console.log("moving camera to "+newDegree);
         			xhttp.open("GET", tiltURL+newDegree, true);
 					xhttp.send();
@@ -59,7 +59,7 @@
         		console.log("moving camera down");
         		if(window.currentTilt < 180){
         			var xhttp = new XMLHttpRequest();
-        			var newDegree = window.currentTilt - 10;
+        			var newDegree = window.currentTilt + 10;
         			console.log("moving camera to "+newDegree);
         			xhttp.open("GET", tiltURL+newDegree, true);
 					xhttp.send();
