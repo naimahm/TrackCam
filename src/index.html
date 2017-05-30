@@ -6,5 +6,66 @@
     </head>
     <body>
         <h1>hi</h1>
+        <table>
+	        <tbody>
+	        	<tr><td></td><td><button onclick="moveUp()">Up</button></td><td></td></tr>
+	        	<tr><td><button onclick="moveLeft()">Left</button></td><td></td><td><button onclick="moveRight()">Right</button></td></tr>
+	        	<tr><td></td><td><button onclick="moveDown()">Down</button></td><td></td></tr>
+	        </tbody>
+        </table>
+
+        <script>
+        	const panURL = '/pan/';
+        	const tiltURL = '/tilt/';
+        	document.addEventListener("DOMContentLoaded", function(event) { 
+        		window.currentPan = 135;
+        		window.currentTilt = 90;      
+			});
+
+        	function moveRight(){
+        		console.log("moving camera right");
+        		if(window.currentTilt < 180){
+        			var xhttp = new XMLHttpRequest();
+        			var newDegree = window.currentPan + 10;
+        			console.log("moving camera to "+newDegree);
+        			xhttp.open("GET", panURL+newDegree, true);
+					xhttp.send();
+        			window.currentPan = newDegree;
+        		}
+        	}
+        	function moveLeft(){
+        		console.log("moving camera left");
+        		if(window.currentPan > 0){
+        			var xhttp = new XMLHttpRequest();
+        			var newDegree = window.currentPan - 10;
+        			console.log("moving camera to "+newDegree);
+        			xhttp.open("GET", panURL+newDegree, true);
+					xhttp.send();
+        			window.currentPan = newDegree;
+        		}
+        	}
+        	function moveUp(){
+        		console.log("moving camera up");
+        		if(window.currentTilt > 0){
+        			var xhttp = new XMLHttpRequest();
+        			var newDegree = window.currentTilt + 10;
+        			console.log("moving camera to "+newDegree);
+        			xhttp.open("GET", tiltURL+newDegree, true);
+					xhttp.send();
+        			window.currentTilt = newDegree;
+        		}
+        	}
+        	function moveDown(){
+        		console.log("moving camera down");
+        		if(window.currentTilt < 180){
+        			var xhttp = new XMLHttpRequest();
+        			var newDegree = window.currentTilt 1 10;
+        			console.log("moving camera to "+newDegree);
+        			xhttp.open("GET", tiltURL+newDegree, true);
+					xhttp.send();
+        			window.currentTilt = newDegree;
+        		}
+        	}
+        </script>
     </body>
 </html>
