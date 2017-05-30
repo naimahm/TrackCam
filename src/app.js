@@ -5,7 +5,6 @@ var piblaster = require('pi-blaster.js');
 var Promise = require('es6-promise').Promise;
 
 const app = express();
-const wss = require('express-ws')(app);
  
 const tiltPin = 17, panPin = 18;
 const defaultPan = 135, defaultTilt = 90;
@@ -16,7 +15,7 @@ app.use(express.static(__dirname));
 
  
 //turn off, specified servo
-app.get('/off/:servo', function(req, res) { 
+app.get('/off', function(req, res) { 
 	try{
 		pan.open().then(function(){  
 		  	pan.setDegree(defaultPan); // 0 - 180
@@ -54,27 +53,6 @@ app.get('/off/:servo', function(req, res) {
 	}catch(e){
 		res.end('Failed to shut servos down');		
 	}
-});
-
-app.ws('/video-stream', (ws, req) => {
-    console.log('Client connected');
-
-    ws.send(JSON.stringify({
-      action: 'init',
-      width: '960',
-      height: '540'
-    }));
-
-    var videoStream = raspividStream({ rotation: 180 });
-
-    videoStream.on('data', (data) => {
-        ws.send(data, { binary: true }, (error) => { if (error) console.error(error); });
-    });
-
-    ws.on('close', () => {
-        console.log('Client left');
-        videoStream.removeAllListeners('data');
-    });
 });
 
 //pan/tilt to certain degree
